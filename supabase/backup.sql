@@ -104,6 +104,7 @@ ALTER SEQUENCE "public"."authorized_users_id_seq" OWNED BY "public"."authorized_
 
 CREATE TABLE IF NOT EXISTS "public"."experiences" (
     "id" bigint NOT NULL,
+    "user_id" "uuid",
     "type" "public"."experience_type" NOT NULL,
     "title" "text" NOT NULL,
     "institution" "text",
@@ -117,7 +118,6 @@ CREATE TABLE IF NOT EXISTS "public"."experiences" (
     "detailed_description" "text",
     "role" "text",
     "activities" "text",
-    "user_id" "uuid"
 );
 
 
@@ -160,17 +160,17 @@ CREATE TABLE IF NOT EXISTS "public"."profile" (
     "full_name" "text",
     "professional_title" "text",
     "bio" "text",
+    "date_of_birth" "date",
+    "nationality" "text"
     "contact_email" "text",
     "contact_phone" "text",
     "linkedin_url" "text",
     "github_url" "text",
+    "website_url" "text"
     "created_at" timestamp with time zone DEFAULT "timezone"('utc'::"text", "now"()) NOT NULL,
     "user_id" "uuid",
     "avatar_url" "text",
     "cv_url" "text",
-    "date_of_birth" "date",
-    "nationality" "text",
-    "website_url" "text"
 );
 
 
